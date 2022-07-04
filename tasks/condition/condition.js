@@ -13,7 +13,7 @@ const y = 7;
 if(y<10){
     z1=x+y;
     console.log(z1);
-}else{
+}else if(y>=10){
     z2=x*y;
     console.log(z2);
 }
