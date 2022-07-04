@@ -14,10 +14,12 @@ if(y<10){
     z1=x+y;
     console.log(z1);
 }else if(y>=10){
-    z2=x*y;
-    console.log(z2);
+    z1=x*y;
+    console.log(z1);
 }
 
+(y<10)?(z2=x+y):(z2=x*y);
+console.log(z2);
 
 /** Task: 2
  * The system receives 3 params - alpha, beta, operator.
