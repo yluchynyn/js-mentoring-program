@@ -10,6 +10,13 @@ let z1;
 let z2;
 const x = 3;
 const y = 7;
+if(y<10){
+    z1=x+y;
+    console.log(z1);
+}else{
+    z2=x*y;
+    console.log(z2);
+}
 
 
 /** Task: 2
@@ -23,6 +30,23 @@ let task2;
 const alpha = 3;
 const beta = 7;
 const operator = "add";
+
+switch(operator){
+    case "add":
+        task2=alpha+beta;
+        break;
+    case "subtract":
+        task2=alpha-beta;
+        break;
+    case "multiply":
+        task2=alpha*beta;
+        break;
+    case "divide":
+        task2=alpha/beta;
+        break;
+
+}
+console.log(task2);
 
 
 /**
@@ -38,7 +62,18 @@ const operator = "add";
  */
 const redemption = 420;
 let discount;
-
+if(redemption>0&&redemption<=6500){
+    if(redemption<=350){
+        discount=0;
+    }else if(redemption>350&&redemption<=1350){
+        discount=15;
+    }else if(redemption>1350&&redemption<=2700){
+        discount=30;
+    }else{
+        discount=45;
+    }
+}
+console.log(discount);
 
 module.exports = {
     z1,
