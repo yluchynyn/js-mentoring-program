@@ -10,7 +10,16 @@ let z1;
 let z2;
 const x = 3;
 const y = 7;
+if (y < 10) {
+  z1 = x + y;
+  console.log(z1);
+} else if (y >= 10) {
+  z1 = x * y;
+  console.log(z1);
+}
 
+z2 = y < 10 ? x + y : x * y;
+console.log(z2);
 
 /** Task: 2
  * The system receives 3 params - alpha, beta, operator.
@@ -24,6 +33,21 @@ const alpha = 3;
 const beta = 7;
 const operator = "add";
 
+switch (operator) {
+  case "add":
+    task2 = alpha + beta;
+    break;
+  case "subtract":
+    task2 = alpha - beta;
+    break;
+  case "multiply":
+    task2 = alpha * beta;
+    break;
+  case "divide":
+    task2 = alpha / beta;
+    break;
+}
+console.log(task2);
 
 /**
  * Task: 3
@@ -38,17 +62,28 @@ const operator = "add";
  */
 const redemption = 420;
 let discount;
-
+if (redemption > 0 && redemption <= 6500) {
+  if (redemption <= 350) {
+    discount = 0;
+  } else if (redemption <= 1350) {
+    discount = 15;
+  } else if (redemption <= 2700) {
+    discount = 30;
+  } else {
+    discount = 45;
+  }
+}
+console.log(discount);
 
 module.exports = {
-    z1,
-    z2,
-    x,
-    y,
-    alpha,
-    beta,
-    operator,
-    task2,
-    redemption,
-    discount
+  z1,
+  z2,
+  x,
+  y,
+  alpha,
+  beta,
+  operator,
+  task2,
+  redemption,
+  discount,
 };
