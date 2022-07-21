@@ -41,12 +41,7 @@ function getFullName(object) {
  * write fuction that checks if number is odd
  * true if odd, false if even
  */
-function isOdd(n) {
-  if (n % 2 == 0) {
-    return false;
-  }
-  return true;
-}
+let isOdd = (n) => n % 2 !== 0;
 
 //console.log(isOdd(8));
 
@@ -157,7 +152,7 @@ const myObject = {
   age: 25,
   friends: ["Mike", "Alan", "Daniel"],
   keys() {
-    for (let key in myObject) {
+    for (let key in this) {
       console.log(key);
     }
   },
