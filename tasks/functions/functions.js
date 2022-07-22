@@ -9,9 +9,14 @@
  * write function that will do sum for two numbers
  *
  */
-function sum(a, b) {
-
+function sum(a = 0, b = 0) {
+  return a + b;
 }
+//const result= sum(2,5);
+//console.log(result);
+
+const sum1 = (a, b) => a + b;
+//console.log(sum1(2,5));
 
 /**
  * write function that returns firstName and lastName of a given object
@@ -20,26 +25,43 @@ function sum(a, b) {
  *    lastName: "Dou"
  * }
  */
-function getFullName(object) {
 
+/*const object={
+		firstName: "Jenna",
+		lastName: "Luchynyn"
+	
+	}*/
+function getFullName(object) {
+  return object.firstName + " " + object.lastName;
 }
+
+//console.log(getFullName(object));
 
 /**
  * write fuction that checks if number is odd
  * true if odd, false if even
  */
-function isOdd(n) {
+let isOdd = (n) => n % 2 !== 0;
 
-}
+//console.log(isOdd(8));
 
 /**
  * write function that returns shortest of the words in the given array
  * @example
  * console.log(getShortest(["one", "two", "three"])) // one
  */
-function getShortest(wordArray) {
 
+function getShortest(wordArray) {
+  let lenghtOfTheShortestWord = wordArray[0].length;
+  let shortestWord = wordArray[0];
+  for (let el of wordArray) {
+    if (el.length < lenghtOfTheShortestWord) {
+      shortestWord = el;
+    }
+  }
+  return shortestWord;
 }
+//console.log(getShortest(["one", "two", "three"]));
 
 /**
  * write function that returns word google with given numbers of "o" symbols
@@ -47,11 +69,19 @@ function getShortest(wordArray) {
  * console.log(getGoogle(5)) // gooooogle
  */
 function getGoogle(n) {
-
+  let i = 0;
+  let o = "";
+  while (i < n) {
+    o += "o";
+    i++;
+  }
+  return "g" + o + "gle";
 }
 
+//console.log(getGoogle(7));
+
 /**
- * write function that returns object based on the given information 
+ * write function that returns object based on the given information
  * (params may be null, so, please use default ones)
  * @example
  * getUser("John", "Dou", 42) should return
@@ -61,9 +91,15 @@ function getGoogle(n) {
  *    age: 42
  * }
  */
-function getUser(firstName, lastName, age) {
-
+function getUser(firstName = null, lastName = null, age = null) {
+  const person = {
+    firstName: firstName,
+    lastName: lastName,
+    age: age,
+  };
+  return person;
 }
+//console.log(getUser());
 
 /**
  * write function that calculates total path traveled.
@@ -71,9 +107,17 @@ function getUser(firstName, lastName, age) {
  * e.g [{direction: "Kiyv - Minsk", distance: 567}, {direction: "Kiyv - Paris", distance: 2402}]
  */
 
-function getTotalPath(path) {
+//const arr=[{direction: "Kiyv - Minsk", distance: 567},
+//{direction: "Kiyv - Paris", distance: 2402}];
 
+function getTotalPath(path) {
+  let sum = 0;
+  for (let el of path) {
+    sum += el.distance;
+  }
+  return sum;
 }
+//console.log(getTotalPath(arr));
 
 /**
  * write a function that will calculate a discount considering the Amount
@@ -88,10 +132,13 @@ function getTotalPath(path) {
  */
 
 function discountFunction(percentage) {
-
-	return function (amount) {};
+  return function (amount) {
+    return amount - (percentage / 100) * amount;
+  };
 }
-
+//const discount10 = discountFunction(10);
+//console.log(discount10(90));
+//console.log(discount10(100));
 /**
  * Write the methods inside the given objects that:
  * 1. console logs keys of the given object (please use for..in cycle)
@@ -100,27 +147,39 @@ function discountFunction(percentage) {
  */
 
 const myObject = {
-	name: 'John',
-	lastName: 'Doe',
-	age: 25,
-	friends: ['Mike', 'Alan', 'Daniel'],
-	keys() {
-		//write your code here
-	},
-	call() {
-		//write your code here
-	}
-
+  name: "John",
+  lastName: "Doe",
+  age: 25,
+  friends: ["Mike", "Alan", "Daniel"],
+  keys() {
+    for (let key in this) {
+      console.log(key);
+    }
+  },
+  call() {
+    return (
+      "My name is " +
+      this.name +
+      " " +
+      this.lastName +
+      " and I am " +
+      this.age +
+      " years old. My best friend is " +
+      this.friends[2]
+    );
+  },
 };
+myObject.keys();
+console.log(myObject.call());
 
 module.exports = {
-	sum,
-	getFullName,
-	isOdd,
-	getShortest,
-	getGoogle,
-	getUser,
-	getTotalPath,
-	discountFunction,
-	myObject
+  sum,
+  getFullName,
+  isOdd,
+  getShortest,
+  getGoogle,
+  getUser,
+  getTotalPath,
+  discountFunction,
+  myObject,
 };
