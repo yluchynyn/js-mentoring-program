@@ -6,7 +6,7 @@
  */
 function getCharactersNames(chars) {
   //const arr = chars.split(" ");
-  return chars.map(object=>object.name);
+  return chars.map((object) => object.name);
 }
 
 /**
@@ -14,7 +14,7 @@ function getCharactersNames(chars) {
  * @param {Array} chars
  */
 function printCharacterNames(chars) {
-	getCharactersNames(chars).forEach((each) => {
+  getCharactersNames(chars).forEach((each) => {
     console.log(each);
   });
 }
@@ -70,8 +70,8 @@ function minItem(arr) {
   //PLACE YOUR CODE HERE
   let min = arr[0];
   for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] > arr[i + 1]) {
-      min = arr[i + 1];
+    if (arr[i] < arr[i + 1]) {
+      min = arr[i];
     }
   }
   return arr.indexOf(min);
