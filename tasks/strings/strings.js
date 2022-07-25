@@ -103,8 +103,7 @@ function replaceConfidential(text) {
       arr[i] = "[CONFIDENTIAL]";
     }
   }
-  let str = arr + "";
-  return str.replace(/,/g, " ");
+  return arr.join(" ");
 }
 
 //console.log(replaceConfidential("lorem [ipsum] si dolor [hello] "));
