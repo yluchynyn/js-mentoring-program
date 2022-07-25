@@ -4,13 +4,19 @@
  * @param {Array} chars
  * @return {Array} - char names
  */
-function getCharactersNames(chars) {}
+function getCharactersNames(chars) {
+  const arr = chars.split(" ");
+}
 
 /**
  * print (console.log) names of all characters
  * @param {Array} chars
  */
-function printCharacterNames(chars) {}
+function printCharacterNames(chars) {
+  chars.forEach((each) => {
+    console.log(each);
+  });
+}
 
 /**
  * return an array of non-human (species !== 'human') characters
@@ -18,7 +24,9 @@ function printCharacterNames(chars) {}
  * @param {Array} chars
  * @return {Array} - non human characters
  */
-function getNonHumanCharacters(chars) {}
+function getNonHumanCharacters(chars) {
+  return chars.filter((element) => element !== "human");
+}
 
 /**
  * return info about character named 'Jerry Smith'
@@ -26,7 +34,9 @@ function getNonHumanCharacters(chars) {}
  * @param {Array} chars
  * @return {Object} - Jerry object
  */
-function getJerryInfo(chars) {}
+function getJerryInfo(chars) {
+  return chars.find((element) => element === "Jerry Smith");
+}
 
 /**
  * check if all characters are human (species attribute). return true if all, false if not
@@ -34,7 +44,9 @@ function getJerryInfo(chars) {}
  * @param {Array} chars
  * @return {boolean}
  */
-function isAllHuman(chars) {}
+function isAllHuman(chars) {
+  return chars.every((element) => element === "human");
+}
 
 /**
  * check if there are any 'type == Fish-Person' characters. return true if any, false if not
@@ -42,7 +54,9 @@ function isAllHuman(chars) {}
  * @param {Array} chars
  * @return {boolean}
  */
-function isAnyFishPerson(chars) {}
+function isAnyFishPerson(chars) {
+  return chars.some((element) => element === "Fish-Person");
+}
 
 /**
  * 1. Write a method to find an index of minimal item from an array;
@@ -52,15 +66,23 @@ function isAnyFishPerson(chars) {}
  * console.log(minItem([2,5,6,3,1,8])) // 4
  */
 function minItem(arr) {
-	//PLACE YOUR CODE HERE
+  //PLACE YOUR CODE HERE
+  let min = arr[0];
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > arr[i + 1]) {
+      min = arr[i + 1];
+    }
+  }
+  return arr.indexOf(min);
 }
+console.log(minItem([2, 5, 6, 3, 1, 8]));
 
 module.exports = {
-	getCharactersNames,
-	printCharacterNames,
-	getNonHumanCharacters,
-	getJerryInfo,
-	isAllHuman,
-	isAnyFishPerson,
-	minItem
+  getCharactersNames,
+  printCharacterNames,
+  getNonHumanCharacters,
+  getJerryInfo,
+  isAllHuman,
+  isAnyFishPerson,
+  minItem,
 };
