@@ -71,7 +71,7 @@ function truncateString(str, num) {
   if (str.length >= num) {
     return str.slice(0, num) + "...";
   }
-  return str;
+  return str+"...";
 }
 // console.log(truncateString('This is a long string', 6))
 // console.log(truncateString('This', 6))
@@ -107,7 +107,7 @@ function replaceConfidential(text) {
   return str.replace(/,/g, " ");
 }
 
-console.log(replaceConfidential("lorem [ipsum] si dolor [hello] "));
+//console.log(replaceConfidential("lorem [ipsum] si dolor [hello] "));
 
 module.exports = {
   reverseString,
