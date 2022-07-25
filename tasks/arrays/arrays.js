@@ -5,7 +5,8 @@
  * @return {Array} - char names
  */
 function getCharactersNames(chars) {
-  const arr = chars.split(" ");
+  //const arr = chars.split(" ");
+  return chars.map(object=>object.name);
 }
 
 /**
@@ -13,7 +14,7 @@ function getCharactersNames(chars) {
  * @param {Array} chars
  */
 function printCharacterNames(chars) {
-  chars.forEach((each) => {
+	getCharactersNames(chars).forEach((each) => {
     console.log(each);
   });
 }
@@ -25,7 +26,7 @@ function printCharacterNames(chars) {
  * @return {Array} - non human characters
  */
 function getNonHumanCharacters(chars) {
-  return chars.filter((element) => element !== "human");
+  return chars.filter((element) => element.species !== "Human");
 }
 
 /**
@@ -35,7 +36,7 @@ function getNonHumanCharacters(chars) {
  * @return {Object} - Jerry object
  */
 function getJerryInfo(chars) {
-  return chars.find((element) => element === "Jerry Smith");
+  return chars.find((element) => element.name === "Jerry Smith");
 }
 
 /**
@@ -45,7 +46,7 @@ function getJerryInfo(chars) {
  * @return {boolean}
  */
 function isAllHuman(chars) {
-  return chars.every((element) => element === "human");
+  return chars.every((element) => element.species === "Human");
 }
 
 /**
@@ -55,7 +56,7 @@ function isAllHuman(chars) {
  * @return {boolean}
  */
 function isAnyFishPerson(chars) {
-  return chars.some((element) => element === "Fish-Person");
+  return chars.some((element) => element.type === "Fish-Person");
 }
 
 /**
