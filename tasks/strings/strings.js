@@ -69,9 +69,9 @@ function strCount(str, char) {
  */
 function truncateString(str, num) {
   if (str.length >= num) {
-    return str.slice(0, num);
+    return str.slice(0, num) + "...";
   }
-  return str + " ".repeat(num - str.length);
+  return str;
 }
 // console.log(truncateString('This is a long string', 6))
 // console.log(truncateString('This', 6))
@@ -97,11 +97,17 @@ function replace10(text) {
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
 function replaceConfidential(text) {
-  const confidential = text.slice(text.indexOf("[") + 1, text.indexOf("]"));
-  const re = new RegExp(confidential, "g");
-  return text.replace(re, "CONFIDENTIAL");
+  const arr = text.trim().split(" ");
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].startsWith("[") && arr[i].endsWith("]")) {
+      arr[i] = "[CONFIDENTIAL]";
+    }
+  }
+  let str = arr + "";
+  return str.replace(/,/g, " ");
 }
-//console.log(replaceConfidential("lorem [ipsum] si dolor [ipsum] "));
+
+console.log(replaceConfidential("lorem [ipsum] si dolor [hello] "));
 
 module.exports = {
   reverseString,
