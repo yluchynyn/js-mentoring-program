@@ -9,14 +9,17 @@
  * console.log(reverseString(123)) // 'This is not a string!'
  */
 function reverseString(str) {
-  let reversed = "";
-  for (let i = str.length; i >= 0; i--) {
-    reversed += str.charAt(i);
+  if (typeof str === "string") {
+    let reversed = "";
+    for (let i = str.length; i >= 0; i--) {
+      reversed += str.charAt(i);
+    }
+    return reversed;
   }
-  return reversed;
+  return "This is not a string!";
 }
 
-//console.log(reverseString('This is not a string!'));
+//console.log(reverseString(2));
 
 /**
  * Calculate a century by given year if a number is passed
@@ -65,7 +68,10 @@ function strCount(str, char) {
  * console.log(truncateString('This', 6)) // 'This'
  */
 function truncateString(str, num) {
-  return str.slice(0, num);
+  if (str.length >= num) {
+    return str.slice(0, num);
+  }
+  return str + " ".repeat(num - str.length);
 }
 // console.log(truncateString('This is a long string', 6))
 // console.log(truncateString('This', 6))
@@ -92,9 +98,10 @@ function replace10(text) {
  */
 function replaceConfidential(text) {
   const confidential = text.slice(text.indexOf("[") + 1, text.indexOf("]"));
-  return text.replace(confidential, "CONFIDENTIAL");
+  const re = new RegExp(confidential, "g");
+  return text.replace(re, "CONFIDENTIAL");
 }
-//console.log(replaceConfidential("lorem [ipsum] si dolor"))
+//console.log(replaceConfidential("lorem [ipsum] si dolor [ipsum] "));
 
 module.exports = {
   reverseString,
