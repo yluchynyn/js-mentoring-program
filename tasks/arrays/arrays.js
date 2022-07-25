@@ -69,14 +69,12 @@ function isAnyFishPerson(chars) {
 function minItem(arr) {
   //PLACE YOUR CODE HERE
   let min = arr[0];
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] < arr[i + 1]) {
+  for (let i = 1; i < arr.length; i++) {
+    if (min > arr[i]) {
       min = arr[i];
-    } else {
-      min = arr[i + 1];
     }
+    return arr.indexOf(min);
   }
-  return arr.indexOf(min);
 }
 console.log(minItem([2, 5, 6, 3, 1, 8]));
 
