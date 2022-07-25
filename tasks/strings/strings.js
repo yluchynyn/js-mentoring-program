@@ -68,10 +68,10 @@ function strCount(str, char) {
  * console.log(truncateString('This', 6)) // 'This'
  */
 function truncateString(str, num) {
-  if (str.length >= num) {
+  if (str.length > num) {
     return str.slice(0, num) + "...";
   }
-  return str+"...";
+  return str;
 }
 // console.log(truncateString('This is a long string', 6))
 // console.log(truncateString('This', 6))
