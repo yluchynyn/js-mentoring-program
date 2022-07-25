@@ -70,11 +70,12 @@ function minItem(arr) {
   //PLACE YOUR CODE HERE
   let min = arr[0];
   for (let i = 1; i < arr.length; i++) {
-    if (min > arr[i]) {
+    if (arr[i] < min) {
       min = arr[i];
     }
+}
     return arr.indexOf(min);
-  }
+  
 }
 console.log(minItem([2, 5, 6, 3, 1, 8]));
 
