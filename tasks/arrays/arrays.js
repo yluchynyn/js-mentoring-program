@@ -72,6 +72,8 @@ function minItem(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
     if (arr[i] < arr[i + 1]) {
       min = arr[i];
+    } else {
+      min = arr[i + 1];
     }
   }
   return arr.indexOf(min);
