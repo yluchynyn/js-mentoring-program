@@ -4,8 +4,8 @@
  * implement method getFullName that returns full name
  */
 const person = {
-	firstName : 'Jenna',
-	lastName : 'Luchynyn',
+	firstName : undefined,
+	lastName : undefined,
 	getFullName(){
 		console.log('${this.firstName} ${this.lastName}')
 	}
@@ -18,7 +18,7 @@ person.getFullName();
  * set person as prototype of student
  */
 const student = {
-	grade : 87,
+	grade : undefined,
 	getGrade(){
 		console.log('${this.grade}')
 	}} //put you object here
@@ -32,12 +32,10 @@ Object.setPrototypeOf(student, person);
 /**
  * create new instance of student using Object.create
  */
-const student2 = Object.create(student,
-	{firstName:{value:"Alex"},
-	lastName:{value:'F'}
-	}); //put you object here
+const student2 = Object.create(student); //put you object here
 // student2.getFullName();
 // console.log(student2);
+//console.log(student2.getGrade());
 module.exports = {
 	person,
 	student,
