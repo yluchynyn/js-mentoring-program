@@ -46,7 +46,7 @@ constructor(firstName,lastName,grade){
 }
 
 getGrade(){
-    return this.getGrade;
+    return this.grade;
 }
 
 
