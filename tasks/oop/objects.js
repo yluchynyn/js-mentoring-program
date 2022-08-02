@@ -6,7 +6,7 @@
 const person = {
 	firstName : undefined,
 	lastName : undefined,
-	getFullName(){
+	getFullName: function(){
 		console.log('${this.firstName} ${this.lastName}')
 	}
 }; //put you object here
@@ -19,7 +19,7 @@ person.getFullName();
  */
 const student = {
 	grade : undefined,
-	getGrade(){
+	getGrade:function(){
 		console.log('${this.grade}')
 	}} //put you object here
 
