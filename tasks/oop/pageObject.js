@@ -1,6 +1,6 @@
 /**
  * Organize a Page Object-like structure.
- * Page object definition: 
+ * Page object definition:
  * - https://martinfowler.com/bliki/PageObject.html
  * - https://webdriver.io/docs/pageobjects/
  * - https://javascript.info/class-inheritance
@@ -12,7 +12,7 @@
  * and return the string: "Open this ${this.url}/${pageName}"
  * 5. Login page should have open() method that will call the parent's open() method passing
  * 'this.name' as a parameter
- * 6. Component class should accept one argument 'type' 
+ * 6. Component class should accept one argument 'type'
  * (will recieve values such as 'footer' and 'header')
  * 7. BasePage should have getters footer() and header() that will return new Component's
  * passing 'footer' and 'header' appropriately
@@ -20,59 +20,50 @@
  */
 
 class BasePage {
-	
+  get footer() {
+    return new Component("footer");
+  }
 
-	get footer(){
-		return new Component("footer");
-	}
+  get header() {
+    return new Component("header");
+  }
+  constructor(url) {
+    this.url = url;
+  }
 
-	get header(){
-		return new Component("header");
-	}
-	constructor(url){
-		this.url=url;
-	
-	}
-
-	open(pageName){
-	return	"Open this"+this.url+"/"+pageName};
+  open(pageName) {
+    return "Open this" + this.url + "/" + pageName;
+  }
 }
 
 class LoginPage extends BasePage {
-	name = undefined;
+  name = undefined;
 
-constructor(url,name){
-	super(url);
-	this.name=name;
-}
+  constructor(url, name) {
+    super(url);
+    this.name = name;
+  }
 
-open(name){
-	name=this.name;
-	return	"Open this "+ this.url+"/"+name};
-  
-
+  open(name) {
+    name = this.name;
+    return "Open this " + this.url + "/" + name;
+  }
 }
 
 class Component {
+  type = undefined;
 
-	type=undefined;
+  constructor(type) {
+    this.type = type;
+  }
 
-constructor(type){
-	this.type=type;
+  review() {
+    return "I can review " + this.type;
+  }
 }
-
-review(){
-	return 'I can review '+ this.type;
-}
-}
-
-const login= new LoginPage("www.apa", "duck");
-console.log(login.open());
-//console.log(login.header());
-LoginPage.footer;
 
 module.exports = {
-	BasePage,
-	LoginPage,
-	Component
+  BasePage,
+  LoginPage,
+  Component,
 };
