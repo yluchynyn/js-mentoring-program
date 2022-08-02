@@ -20,8 +20,8 @@
  */
 
 class BasePage {
-	footer;
-	header;
+	footer=undefined;
+	header=undefined;
 	get bfooter(){
 		return this.footer;
 	}
@@ -30,10 +30,12 @@ class BasePage {
 	}
 	constructor(url){
 		this.url=url;
+		footer=this.bfooter();
+		header=this.bheader();
 	}
 
 	open(pageName){
-	return	'Open this '+this.url/pageName};
+	return	"Open this"+this.url+"/"+pageName};
 }
 
 class LoginPage extends BasePage {
@@ -50,13 +52,13 @@ open(pageName){
 }
 
 class Component {
-	
+	type=undefined;
 constructor(type){
 	this.type=type;
 }
 
 review(){
-	return 'I can review ${this.type}';
+	return 'I can review '+ this.type;
 }
 }
 

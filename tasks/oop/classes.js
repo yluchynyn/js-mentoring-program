@@ -9,6 +9,25 @@
  * 3) method getFullName
  */
 //put your code here
+class Person{
+firstName=undefined;
+lastName=undefined;
+
+constructor(firstName,lastName){
+    this.firstName=firstName;
+    this.lastName=lastName;
+}
+
+getFullName(){
+    return this.firstName+" "+this.lastName;
+}
+
+
+
+
+
+
+}
 
 /**
  * implement class Student that extends Person with:
@@ -18,8 +37,26 @@
  */
 //put your code here
 
-const person = ''; //create instance of class person
-const student = ''; //create instance of class student
+class Student extends Person{
+grade=undefined;
+
+constructor(firstName,lastName,grade){
+    super(firstName,lastName);
+    this.grade=grade;
+}
+
+getGrade(){
+    return this.getGrade;
+}
+
+
+
+}
+
+const person = new Person("Alex","Huges"); //create instance of class person
+const student = new Student("Inga","Weeks",68); //create instance of class student
+console.log(person);
+console.log(student);
 
 module.exports = {
     person,
