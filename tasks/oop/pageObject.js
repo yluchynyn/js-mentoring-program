@@ -22,16 +22,15 @@
 class BasePage {
 	footer=undefined;
 	header=undefined;
-	get bfooter(){
+	get getFooter(){
 		return this.footer;
 	}
-	get bheader(){
+	get getHeader(){
 		return this.header;
 	}
 	constructor(url){
 		this.url=url;
-		bfooter();
-		bheader();
+	
 	}
 
 	open(pageName){
