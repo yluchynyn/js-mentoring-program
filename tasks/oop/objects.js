@@ -7,12 +7,12 @@ const person = {
 	firstName : undefined,
 	lastName : undefined,
 	getFullName: function(){
-		console.log('${this.firstName} ${this.lastName}')
+		return this.firstName + " "+ this.lastName;
 	}
 }; //put you object here
 
-console.log(person);
-person.getFullName();
+//console.log(person);
+console.log(person.getFullName());
 /**
  * create object student that has property grade and method getGrade
  * set person as prototype of student
