@@ -20,13 +20,14 @@
  */
 
 class BasePage {
-	footer=undefined;
-	header=undefined;
-	get getFooter(){
-		return this.footer;
+	
+
+	get footer(){
+		return new Component("footer");
 	}
-	get getHeader(){
-		return this.header;
+
+	get header(){
+		return new Component("header");
 	}
 	constructor(url){
 		this.url=url;
@@ -38,20 +39,24 @@ class BasePage {
 }
 
 class LoginPage extends BasePage {
+	name = undefined;
+
 constructor(url,name){
 	super(url);
 	this.name=name;
 }
-open(pageName){
-	pageName=this.name;
 
-}
+open(name){
+	name=this.name;
+	return	"Open this "+ this.url+"/"+name};
   
 
 }
 
 class Component {
+
 	type=undefined;
+
 constructor(type){
 	this.type=type;
 }
@@ -60,6 +65,11 @@ review(){
 	return 'I can review '+ this.type;
 }
 }
+
+const login= new LoginPage("www.apa", "duck");
+console.log(login.open());
+//console.log(login.header());
+LoginPage.footer;
 
 module.exports = {
 	BasePage,
