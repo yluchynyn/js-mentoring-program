@@ -30,8 +30,8 @@ class BasePage {
 	}
 	constructor(url){
 		this.url=url;
-		footer=this.bfooter();
-		header=this.bheader();
+		bfooter();
+		bheader();
 	}
 
 	open(pageName){
