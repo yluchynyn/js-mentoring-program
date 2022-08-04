@@ -5,7 +5,6 @@
  * @return {Array} - char names
  */
 function getCharactersNames(chars) {
-  //const arr = chars.split(" ");
   return chars.map((object) => object.name);
 }
 
@@ -67,15 +66,13 @@ function isAnyFishPerson(chars) {
  * console.log(minItem([2,5,6,3,1,8])) // 4
  */
 function minItem(arr) {
-  //PLACE YOUR CODE HERE
   let min = arr[0];
   for (let i = 1; i < arr.length; i++) {
     if (arr[i] < min) {
       min = arr[i];
     }
-}
-    return arr.indexOf(min);
-  
+  }
+  return arr.indexOf(min);
 }
 console.log(minItem([2, 5, 6, 3, 1, 8]));
 

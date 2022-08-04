@@ -10,16 +10,12 @@
  */
 function reverseString(str) {
   if (typeof str === "string") {
-    let reversed = "";
-    for (let i = str.length; i >= 0; i--) {
-      reversed += str.charAt(i);
-    }
-    return reversed;
+    return str.split("").reverse().join("");
   }
   return "This is not a string!";
 }
 
-//console.log(reverseString(2));
+//console.log(reverseString("Hello there"));
 
 /**
  * Calculate a century by given year if a number is passed
@@ -32,9 +28,13 @@ function reverseString(str) {
  * hint: please choose and appropriate method from the Math object
  */
 function centuryFromYear(year) {
-  return Math.round(Math.ceil(year / 100));
+  if (typeof year === "number") {
+    return Math.ceil(year / 100);
+  } else {
+    return "Not a number";
+  }
 }
-//console.log(centuryFromYear(1601))
+//console.log(centuryFromYear(1900))
 
 /**
  * Calculate how many times the 'char' appears in the provided 'string'
@@ -96,17 +96,17 @@ function replace10(text) {
  * @example
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
-function replaceConfidential(text) {
-  const arr = text.trim().split(" ");
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].startsWith("[") && arr[i].endsWith("]")) {
-      arr[i] = "[CONFIDENTIAL]";
-    }
-  }
-  return arr.join(" ");
-}
 
-//console.log(replaceConfidential("lorem [ipsum] si dolor [hello] "));
+function replaceConfidential2(text) {
+  let textArr = text.split(" ");
+  const regexpModifications = /\[.*?\]/g;
+  const arr = text.match(regexpModifications);
+  arr.forEach((el) => {
+    textArr.splice(textArr.indexOf(el), 1, "[CONFIDENTIAL]");
+  });
+  return textArr.join(" ");
+}
+//console.log(replaceConfidential2("lorem [ipsum] si dolor [hello]"));
 
 module.exports = {
   reverseString,
