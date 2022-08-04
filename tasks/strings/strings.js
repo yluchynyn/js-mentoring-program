@@ -97,7 +97,7 @@ function replace10(text) {
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
 
-function replaceConfidential2(text) {
+function replaceConfidential(text) {
   let textArr = text.split(" ");
   const regexpModifications = /\[.*?\]/g;
   const arr = text.match(regexpModifications);
