@@ -25,12 +25,13 @@ const {
 
 
 async function asyncPromiseResolve() {
-  const result = await promiseResolve();
- console.log(result + ' with async await')
+  return await promiseResolve()+' with async await';
  
 }
 
-await asyncPromiseResolve()
+(async () => {
+  console.log(await asyncPromiseResolve() );
+})();
 
 /**
  * TASK-2: Reject the created earlier promiseReject() promise
@@ -39,9 +40,19 @@ await asyncPromiseResolve()
  * @returns {Promise<"Rejected! with async await">}
  */
 async function asyncPromiseReject() {
-  //PLACE YOUR CODE HERE:
+  try{
+    return await promiseReject();
+} catch (e) {
+  return e;
+}
 }
 
+
+//asyncPromiseReject();
+
+(async () => {
+  console.log(await asyncPromiseReject() +' with async await');
+})();
 /**
  * TASK-3: Return the result of 3 promises: 
  * getDogs(), getCats() and getBirds() from the './utils/utilPromises' file
@@ -49,8 +60,9 @@ async function asyncPromiseReject() {
  * @returns 
  */
 async function asyncPromiseAll() {
-  //PLACE YOUR CODE HERE:
+  return await Promise.all([getDogs() ,getCats(), getBirds()]);
 }
+asyncPromiseAll();
 
 module.exports = {
   asyncPromiseResolve,

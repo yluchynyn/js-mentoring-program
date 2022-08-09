@@ -33,10 +33,10 @@ function promiseReject() {
 	return new Promise((resolve,reject) =>reject("Rejected!"));
 }
 
-// promiseReject()
-// 	.then((res) => console.log(res))
-// 	.catch((err) => console.log(err))
-// ;
+promiseReject()
+	.then((res) => console.log(res))
+	.catch((err) => console.log(err))
+;
 
 /**
  * Task-3: Create a promise with both resolve and reject states
