@@ -4,7 +4,7 @@ const {
   getBirds,
   firstPromise,
   secondPromise,
-} = require("./utils/utilPromises");
+} = require("./utils/utilPromises"); 
 
 /**
  * Task-1: Create a promise with the resolve state
@@ -70,13 +70,15 @@ function fullPromise(param) {
 let chainingResult = "";
 
 async function promisesChaining() {
-	firstPromise().then((res) => {
-    console.log(res);
-    return secondPromise();
-  }).then((res) => console.log(res));
+  chainingResult = firstPromise();
+  chainingResult+=secondPromise();	
+    return  chainingResult;
   
 }
-promisesChaining();
+(async () => {
+	console.log(await promisesChaining());
+  })();
+
 
 /**
  * Task-5: Implement a function getAnimals() that will return the result of
