@@ -51,7 +51,7 @@ async function asyncPromiseReject() {
 //asyncPromiseReject();
 
 (async () => {
-  console.log(await asyncPromiseReject() +' with async await');
+  console.log(await asyncPromiseReject());
 })();
 /**
  * TASK-3: Return the result of 3 promises: 
