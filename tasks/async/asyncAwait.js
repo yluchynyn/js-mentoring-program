@@ -21,9 +21,16 @@ const {
  * @returns {Promise<"Resolved! with async await">}
  * 
  */
+// const fs = require('./promises');
+
+
 async function asyncPromiseResolve() {
-  //PLACE YOUR CODE HERE:
+  const result = await promiseResolve();
+ console.log(result + ' with async await')
+ 
 }
+
+await asyncPromiseResolve()
 
 /**
  * TASK-2: Reject the created earlier promiseReject() promise
