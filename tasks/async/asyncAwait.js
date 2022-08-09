@@ -43,12 +43,10 @@ async function asyncPromiseReject() {
   try{
     return await promiseReject();
 } catch (e) {
-  return e;
+  return e +' with async await';
 }
 }
 
-
-//asyncPromiseReject();
 
 (async () => {
   console.log(await asyncPromiseReject());
