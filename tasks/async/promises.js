@@ -4,7 +4,7 @@ const {
   getBirds,
   firstPromise,
   secondPromise,
-} = require("./utils/utilPromises"); 
+} = require("./utils/utilPromises");
 
 /**
  * Task-1: Create a promise with the resolve state
@@ -30,13 +30,13 @@ function promiseResolve() {
  */
 
 function promiseReject() {
-	return new Promise((resolve,reject) =>reject("Rejected!"));
+  return new Promise((resolve, reject) => reject("Rejected!"));
 }
 
-promiseReject()
-	.then((res) => console.log(res))
-	.catch((err) => console.log(err))
-;
+// promiseReject()
+// 	.then((res) => console.log(res))
+// 	.catch((err) => console.log(err))
+// ;
 
 /**
  * Task-3: Create a promise with both resolve and reject states
@@ -46,18 +46,16 @@ promiseReject()
 
 function fullPromise(param) {
   return new Promise((resolve, reject) => {
-      if (param === true) {
-        resolve("Resolved!");
-      } else {
-        reject("Rejected!");
-      }
-});
- 
+    if (param === true) {
+      resolve("Resolved!");
+    } else {
+      reject("Rejected!");
+    }
+  });
 }
 // fullPromise(false)
 //   .then((res) => console.log(res))
-//   .catch((err) => console.log(err))
-//   .finally(() => console.log("Finally"));
+//   .catch((err) => console.log(err));
 
 /**
  * Task-4: Chain two promises (firstPromise() and secondPromise()
@@ -70,15 +68,16 @@ function fullPromise(param) {
 let chainingResult = "";
 
 async function promisesChaining() {
-  chainingResult = firstPromise();
-  chainingResult+=secondPromise();	
-    return  chainingResult;
-  
+  return firstPromise().then((data) => {
+    return secondPromise((chainingResult = data)).then((data) => {
+      return (chainingResult += " " + data);
+    });
+  });
 }
-(async () => {
-	console.log(await promisesChaining());
-  })();
 
+// (async () => {
+// 	console.log(await promisesChaining());
+//   })();
 
 /**
  * Task-5: Implement a function getAnimals() that will return the result of
@@ -88,16 +87,10 @@ async function promisesChaining() {
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
  */
 
-
-// async function getAnimals() {
-//   Promise.all([getDogs() ,getCats(), getBirds()]).then((res) => console.log(res));
-// }
-
-// getAnimals();
 async function getAnimals() {
-	return await Promise.all([getDogs() ,getCats(), getBirds()]);
-  }
-  getAnimals();
+  return await Promise.all([getDogs(), getCats(), getBirds()]);
+}
+//getAnimals();
 
 module.exports = {
   promiseResolve,
