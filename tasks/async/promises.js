@@ -87,11 +87,15 @@ promisesChaining();
  */
 
 
-async function getAnimals() {
-  Promise.all([getDogs() ,getCats(), getBirds()]).then((res) => console.log(res));
-}
+// async function getAnimals() {
+//   Promise.all([getDogs() ,getCats(), getBirds()]).then((res) => console.log(res));
+// }
 
-getAnimals();
+// getAnimals();
+async function getAnimals() {
+	return await Promise.all([getDogs() ,getCats(), getBirds()]);
+  }
+  getAnimals();
 
 module.exports = {
   promiseResolve,
