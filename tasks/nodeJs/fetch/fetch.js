@@ -26,8 +26,16 @@ const res = await fetch('https://jsonplaceholder.typicode.com/posts',{
 	method: 'GET',
 });
 const json = await res.json();
-console.log(json);
-fs.writeFileSync(path.join(__dirname, './response.json'), JSON.stringify(json));
+var data1 = json.filter((el)=>el.id <20)
+console.log(data1);
+
+var data= JSON.stringify(data1,null,'\t');
+
+fs.writeFile( 'response.json', data, finished);
+function finished(err){
+	console.log('all set');
+
+}
 };
 sendRequest();
 
