@@ -31,7 +31,7 @@ console.log(data1);
 
 var data= JSON.stringify(data1,null,'\t');
 
-fs.writeFile( 'response.json', data, finished);
+fs.writeFile( './response.json', data, finished);
 function finished(err){
 	console.log('all set');
 
