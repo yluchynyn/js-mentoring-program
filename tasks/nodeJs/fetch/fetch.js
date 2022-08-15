@@ -16,7 +16,7 @@
  */
 const fetch = require('node-fetch');
 const fs = require('fs/promises');
-
+const path = require('path');
 /**
  * Run fetch method inside the function
  * Use the fs.writeFile method inside the function
@@ -31,7 +31,8 @@ console.log(data1);
 
 var data= JSON.stringify(data1,null,'\t');
 
-fs.writeFile( './response.json', data, finished);
+//fs.writeFileSync(path.join(__dirname, 'myFile.json'), JSON.stringify(testObject));
+fs.writeFile(path.join( __dirname,'./response.json'), data, finished);
 function finished(err){
 	console.log('all set');
 
