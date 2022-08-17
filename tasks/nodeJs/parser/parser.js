@@ -33,13 +33,15 @@ function f1(callback) {
 
 const jsonParser = async () => {
 	
-  const file = await fs.readFile(path.join(__dirname, "./test.json"), "utf-8");
+  const parsedObj = require("./test.json");
 
-  let arr = JSON.parse(file).list.entries.map((el) => el.entry.name.slice(-5));
+  let arr = [];
+  arr = parsedObj.list.entries.map((el) => el.entry.name.split(".")[0]);
+  console.log(arr);
 
   let arr1 = [];
   for (let elm of arr) {
-    arr1.push({ docId: "http://doc.epam.com/" + elm.name });
+    arr1.push({ docId: "http://doc.epam.com/" + elm });
   }
 
   let data = JSON.stringify(arr1, null, "\t");
