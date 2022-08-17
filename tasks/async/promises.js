@@ -1,9 +1,9 @@
 const {
-	getDogs,
-	getCats,
-	getBirds,
-	firstPromise,
-	secondPromise
+  getDogs,
+  getCats,
+  getBirds,
+  firstPromise,
+  secondPromise,
 } = require("./utils/utilPromises");
 
 /**
@@ -14,8 +14,13 @@ const {
  */
 
 function promiseResolve() {
-	//PLACE YOUR CODE HERE:
+  return new Promise((resolve) => resolve("Resolved!"));
 }
+
+// promiseResolve().then((res) => {
+//   console.log(res);
+//   return promiseResolve();
+// });
 
 /**
  * Task-2: Create a promise with the reject state
@@ -25,8 +30,13 @@ function promiseResolve() {
  */
 
 function promiseReject() {
-	//PLACE YOUR CODE HERE:
+  return new Promise((resolve, reject) => reject("Rejected!"));
 }
+
+// promiseReject()
+// 	.then((res) => console.log(res))
+// 	.catch((err) => console.log(err))
+// ;
 
 /**
  * Task-3: Create a promise with both resolve and reject states
@@ -35,22 +45,39 @@ function promiseReject() {
  */
 
 function fullPromise(param) {
-	//PLACE YOUR CODE HERE:
+  return new Promise((resolve, reject) => {
+    if (param) {
+      resolve("Resolved!");
+    } else {
+      reject("Rejected!");
+    }
+  });
 }
+// fullPromise(false)
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
 
 /**
  * Task-4: Chain two promises (firstPromise() and secondPromise()
- * from the './utils/utilPromises' file) 
+ * from the './utils/utilPromises' file)
  * and store the result to the
  * variable 'chainingResult' = 'Promises chained';
  * Please do the chaining inside of the promisesChaining function
  */
-let chainingResult = '';
+
+let chainingResult = "";
 
 async function promisesChaining() {
-	//PLACE YOUR CODE HERE:
+  return firstPromise().then((data) => {
+    return secondPromise((chainingResult = data)).then((data) => {
+      return (chainingResult += " " + data);
+    });
+  });
 }
 
+// (async () => {
+// 	console.log(await promisesChaining());
+//   })();
 
 /**
  * Task-5: Implement a function getAnimals() that will return the result of
@@ -61,13 +88,14 @@ async function promisesChaining() {
  */
 
 async function getAnimals() {
-	//PLACE YOUR CODE HERE:
+  return await Promise.all([getDogs(), getCats(), getBirds()]);
 }
+//getAnimals();
 
 module.exports = {
-	promiseResolve,
-	promiseReject,
-	fullPromise,
-	getAnimals,
-	promisesChaining
+  promiseResolve,
+  promiseReject,
+  fullPromise,
+  getAnimals,
+  promisesChaining,
 };
