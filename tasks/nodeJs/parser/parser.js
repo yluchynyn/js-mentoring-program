@@ -21,13 +21,37 @@
  *
  * 2. Check yourself by running "npm run test:nodejs"
  */
-const fs = require('fs');
+const fs = require("fs/promises");
+const path = require("path");
 
-const jsonParser = () => {
+function f1(callback) {
+  return setTimeout(() => {
+    console.log("f1");
+    callback();
+  }, 2000);
+}
 
+const jsonParser = async () => {
+	
+  const file = await fs.readFile(path.join(__dirname, "./test.json"), "utf-8");
+
+  let arr = JSON.parse(file).list.entries.map((el) => el.entry.name.slice(-5));
+
+  let arr1 = [];
+  for (let elm of arr) {
+    arr1.push({ docId: "http://doc.epam.com/" + elm.name });
+  }
+
+  let data = JSON.stringify(arr1, null, "\t");
+
+  await fs.writeFile(path.join(__dirname, "./parsed.json"), data, finished);
+  function finished(err) {
+    console.log("all set");
+  }
 };
+
+f1(jsonParser);
 
 module.exports = {
-	jsonParser
+  jsonParser,
 };
-

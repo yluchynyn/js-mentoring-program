@@ -14,34 +14,29 @@
  *
  * 3. Check yourself by running "npm run test:nodejs"
  */
-const fetch = require('node-fetch');
-const fs = require('fs/promises');
-const path = require('path');
+const fetch = require("node-fetch");
+const fs = require("fs/promises");
+const path = require("path");
 /**
  * Run fetch method inside the function
  * Use the fs.writeFile method inside the function
  */
 const sendRequest = async () => {
-const res = await fetch('https://jsonplaceholder.typicode.com/posts',{
-	method: 'GET',
-});
-const json = await res.json();
-var data1 = json.filter((el)=>el.id <20)
-console.log(data1);
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "GET",
+  });
+  const json = await res.json();
+  var data1 = json.filter((el) => el.id < 20);
 
-var data= JSON.stringify(data1,null,'\t');
+  var data = JSON.stringify(data1, null, "\t");
 
-//fs.writeFileSync(path.join(__dirname, 'myFile.json'), JSON.stringify(testObject));
-fs.writeFile(path.join( __dirname,'./response.json'), data, finished);
-function finished(err){
-	console.log('all set');
-
-}
+  fs.writeFile(path.join(__dirname, "./response.json"), data, finished);
+  function finished(err) {
+    console.log("all set");
+  }
 };
 sendRequest();
 
-
-
 module.exports = {
-	sendRequest
+  sendRequest,
 };
