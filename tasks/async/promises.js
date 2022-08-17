@@ -46,7 +46,7 @@ function promiseReject() {
 
 function fullPromise(param) {
   return new Promise((resolve, reject) => {
-    if (param === true) {
+    if (param) {
       resolve("Resolved!");
     } else {
       reject("Rejected!");
