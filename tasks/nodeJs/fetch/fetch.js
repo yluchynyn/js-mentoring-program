@@ -17,20 +17,17 @@
 const fetch = require("node-fetch");
 const fs = require("fs/promises");
 const path = require("path");
-/**
- * Run fetch method inside the function
- * Use the fs.writeFile method inside the function
- */
-const sendRequest = async () => {
+
+  const sendRequest = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     method: "GET",
   });
   const json = await res.json();
-  var data1 = json.filter((el) => el.id < 20);
+  const data1 = json.filter((el) => el.id < 20);
 
-  var data = JSON.stringify(data1, null, "\t");
+  const data = JSON.stringify(data1, null, "\t");
 
-  fs.writeFile(path.join(__dirname, "./response.json"), data, finished);
+await fs.writeFile(path.join(__dirname, "./response.json"), data, finished);
   function finished(err) {
     console.log("all set");
   }

@@ -32,12 +32,10 @@ function f1(callback) {
 }
 
 const jsonParser = async () => {
-	
   const parsedObj = require("./test.json");
 
   let arr = [];
   arr = parsedObj.list.entries.map((el) => el.entry.name.split(".")[0]);
-  console.log(arr);
 
   let arr1 = [];
   for (let elm of arr) {
